@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+float calculateAverage(float marks[], int n) {
+    float sum = 0;
+
+    for (int i = 0; i < n; i++) {
+        sum += marks[i];
+    }
+
+    return sum / n;
+}
+
+char calculateGrade(float average) {
+    if (average >= 90)
+        return 'A';
+    else if (average >= 75)
+        return 'B';
+    else if (average >= 60)
+        return 'C';
+    else if (average >= 50)
+        return 'D';
+    else
+        return 'F';
+}
+
+int main() {
+    string name;
+    int n;
+
+    cout << "Enter student name: ";
+    getline(cin, name);
+
+    cout << "Enter number of subjects: ";
+    cin >> n;
+
+    float marks[n];
+
+    cout << "Enter marks:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> marks[i];
+    }
+
+    float average = calculateAverage(marks, n);
+    char grade = calculateGrade(average);
+
+    cout << "\n--- Student Report ---\n";
+    cout << "Name: " << name << endl;
+    cout << "Average: " << average << endl;
+    cout << "Grade: " << grade << endl;
+
+    return 0;
+}
